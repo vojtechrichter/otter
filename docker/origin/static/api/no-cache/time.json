@@ -1,0 +1,4 @@
+{
+  "ts": "static-value-but-served-as-no-cache",
+  "note": "served from /api/no-cache - your proxy should bypass the cache"
+}

@@ -1,0 +1,7 @@
+services:
+  origin:
+    build: .
+    container_name: otter-origin
+    ports:
+      - "8088:80"
+    restart: unless-stopped

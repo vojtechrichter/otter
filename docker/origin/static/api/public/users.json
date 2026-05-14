@@ -1,0 +1,9 @@
+{
+  "users": [
+    {"id": 1, "name": "Ada Lovelace",   "role": "founder"},
+    {"id": 2, "name": "Grace Hopper",   "role": "admin"},
+    {"id": 3, "name": "Alan Turing",    "role": "user"},
+    {"id": 4, "name": "Edsger Dijkstra","role": "user"}
+  ],
+  "note": "served from /api/public - cacheable for 30s"
+}

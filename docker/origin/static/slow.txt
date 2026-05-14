@@ -1,0 +1,2 @@
+This response was throttled by the origin server to simulate a slow upstream.
+Useful for testing request coalescing and timeouts in your caching proxy.

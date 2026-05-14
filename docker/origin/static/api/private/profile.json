@@ -1,0 +1,5 @@
+{
+  "user_id": 42,
+  "preferences": {"theme": "dark", "lang": "en"},
+  "note": "served from /api/private - private cache for 30s, proxy should NOT cache this for sharing"
+}
