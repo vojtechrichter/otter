@@ -34,7 +34,8 @@ OUT_DIR   := $(BUILD_DIR)/$(BUILD)
 OBJ_DIR   := $(OUT_DIR)/obj
 BIN       := $(OUT_DIR)/$(TARGET)
 
-SRCS      := $(wildcard $(SRC_DIR)/*.c)
+SRCS      := $(shell find $(SRC_DIR) -name '*.c')
+HDRS      := $(shell find $(SRC_DIR) -name '*.h')
 OBJS      := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 DEPS      := $(OBJS:.o=.d)
 
@@ -60,6 +61,7 @@ $(BIN): $(OBJS) | $(OUT_DIR)
 	$(Q)$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	@printf "  CC      %s\n" "$<"
 	$(Q)$(CC) $(CFLAGS) -c $< -o $@
 
@@ -87,7 +89,7 @@ release:
 
 .PHONY: format
 format:
-	$(Q)clang-format -i $(SRCS) $(wildcard $(SRC_DIR)/*.h) $(TEST_SRCS)
+	$(Q)clang-format -i $(SRCS) $(HDRS) $(TEST_SRCS)
 
 .PHONY: tidy
 tidy:

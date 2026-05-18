@@ -1,3 +1,4 @@
+#include "logging/logging.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,9 +6,9 @@
 
 #include <arpa/inet.h>
 
-
 int main(int argc, char **argv)
 {
+    LOG_INFO("ahoj");
     int server_socket = socket(AF_INET, SOCK_STREAM, 0);
 
     struct sockaddr_in incoming_address = {
